@@ -9,12 +9,12 @@ login = j1["login"]
 passwords = j1["passwords"]
 ip = j1["ip"]
 date_name = j1["date_name"]
-c_con = login + "/" + passwords + "@" + ip + "/" + date_name
 
-#con = cx_Oracle.connect('login/passwords@ip/date_name')
-con = cx_Oracle.connect(c_con)
-if (con):
- print("Connection successful")
-else:
- print("Connection not successful")
+try:
+    c_con = login + "/" + passwords + "@" + ip + "/" + date_name
+    #con = cx_Oracle.connect('login/passwords@ip/date_name')
+    con = cx_Oracle.connect(c_con)
+    print("Connection successful")
+except:
+    print("Connection not successful")
 
